@@ -8,20 +8,20 @@ public class CalculaArea : MonoBehaviour
 {
     public float radio;
     private float resultado;
-    public Text MyText;
-    private string resultadoTexto;
 
     void Start()
     {
-        float radioCuad = radio * radio;
-        resultado = Mathf.PI * radioCuad;
-        resultadoTexto = Convert.ToString(resultado);
-        MyText.text = resultadoTexto;
+        
+        resultado = Mathf.PI * Mathf.Pow(radio, 2);
+
+        Vector3 scale = transform.localScale;
+        scale.x *= radio;
+        scale.y *= radio;
+        transform.localScale = scale;
+
+
+        print("Radio:" + radio + "Area:" + resultado);
+       
     }
 
-   
-    void Update()
-    {
-        
-    }
 }
